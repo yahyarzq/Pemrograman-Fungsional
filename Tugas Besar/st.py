@@ -88,6 +88,10 @@ def searcbyYear(json_str):
           # print('Book "{}" Published Date Is Missing'.format(i["title"]))
     return books_collection
 
+def showallBooksTitle(json_str):
+    title_only = lambda data : data["title"]
+    books_list = list(map(title_only,json_str))
+    print("\n",*books_list)
 
 def main():
     #json_result  = jsonreader_from_dict(json_reader())
@@ -100,7 +104,8 @@ def main():
         print("3. Search Books By Authors")
         print("4. Search Books By Categories")
         print("5. Search Books By Publication Year")
-        print("6. Exit")
+        print("6. Show All Books Title")
+        print("7. Exit")
         input_menu = input("Select Menu : ")
         if input_menu == "1":
             searcbyTitle(json_result)
@@ -113,6 +118,8 @@ def main():
         elif input_menu == "5":
             searcbyYear(json_result)
         elif input_menu == "6":
+            showallBooksTitle(json_result)
+        elif input_menu == "7":
             flh = False
             exit()
         else:
