@@ -1,4 +1,4 @@
-from jsonreader import jsonreader_from_dict
+
 import json
 import os
 import re
@@ -20,7 +20,7 @@ def findWord(word, source) -> bool:
     return True if re.search(r'\b({0})\b'.format(word), source, flags=re.IGNORECASE) else False
 
 
-def sbT_decorator(func):
+def first_decorator(func):
     def inner_decorator(arg_mt):
         books_collection = func(arg_mt)
         for i in books_collection:
@@ -29,7 +29,7 @@ def sbT_decorator(func):
         return books_collection
     return inner_decorator
 
-def sbI_decorator(func):
+def second_decorator(func):
     def inner_decorator(arg_mt):
         books_collection = func(arg_mt)
         for i in books_collection:
@@ -38,25 +38,8 @@ def sbI_decorator(func):
         return books_collection
     return inner_decorator
 
-def sbA_decorator(func):
-    def inner_decorator(arg_mt):
-        books_collection = func(arg_mt)
-        for i in books_collection:
-            print("\n\nBook Title : {} \nBook ISBN : {} \nBook Authors : {} \nBook Categories : {} \n"
-                  .format(i["title"], i["isbn"], ", ".join(i["authors"]),", ".join( i["categories"])))
-        return books_collection
-    return inner_decorator
 
-def sbC_decorator(func):
-    def inner_decorator(arg_mt):
-        books_collection = func(arg_mt)
-        for i in books_collection:
-            print("\n\nBook Title : {} \nBook ISBN : {} \nBook Authors : {} \nBook Categories : {} \n"
-                  .format(i["title"], i["isbn"], ", ".join(i["authors"]),", ".join( i["categories"])))
-        return books_collection
-    return inner_decorator
-
-@sbT_decorator
+@first_decorator
 def searcbyTitle(json_str):
     input_t = str(input("Input Book Title : "))
     books_collection = []
@@ -65,7 +48,7 @@ def searcbyTitle(json_str):
             books_collection.append(i)
     return books_collection
 
-@sbI_decorator
+@second_decorator
 def searcbyISBN(json_str):
     input_t = str(input("Input Book ISBN : "))
     books_collection = []
@@ -74,7 +57,7 @@ def searcbyISBN(json_str):
             books_collection.append(i)
     return books_collection
 
-@sbA_decorator
+@first_decorator
 def searcbyAuthors(json_str):
     input_t = str(input("Input Book Authors : "))
     books_collection = []
@@ -83,12 +66,21 @@ def searcbyAuthors(json_str):
             books_collection.append(i)
     return books_collection
 
-@sbC_decorator
+@first_decorator
 def searcbyCategories(json_str):
     input_t = str(input("Input Book Categories : "))
     books_collection = []
     for i in json_str:
         if input_t.casefold() in (categories.casefold() for categories in i["categories"]):
+            books_collection.append(i)
+    return books_collection
+
+@first_decorator
+def searcbyYear(json_str):
+    input_t = str(input("Input Book Publication Year  : "))
+    books_collection = []
+    for i in json_str:
+        if findWord(input_t, i["publishedDate"]["$date"]):
             books_collection.append(i)
     return books_collection
 
@@ -103,7 +95,8 @@ def main():
         print("2. Search Books By ISBN")
         print("3. Search Books By Authors")
         print("4. Search Books By Categories")
-        print("5. Exit")
+        print("5. Search Books By Publication Year")
+        print("6. Exit")
         input_menu = input("Select Menu : ")
         if input_menu == "1":
             searcbyTitle(json_result)
@@ -114,6 +107,8 @@ def main():
         elif input_menu == "4":
             searcbyCategories(json_result)
         elif input_menu == "5":
+            searcbyYear(json_result)
+        elif input_menu == "6":
             flh = False
             exit()
         else:
