@@ -80,8 +80,12 @@ def searcbyYear(json_str):
     input_t = str(input("Input Book Publication Year  : "))
     books_collection = []
     for i in json_str:
-        if findWord(input_t, i["publishedDate"]["$date"]):
+        try:
+          if findWord(input_t, i["publishedDate"]["$date"]):
             books_collection.append(i)
+        except:
+            pass
+          # print('Book "{}" Published Date Is Missing'.format(i["title"]))
     return books_collection
 
 
