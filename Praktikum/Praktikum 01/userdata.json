@@ -1,0 +1,65 @@
+{
+    "kendaraan": [
+      {
+        "id": 0,
+        "is_new": true,
+        "name": "Inova"
+      },
+      {
+        "id": 1,
+        "is_new": false,
+        "name": "Kijang"
+      },
+      {
+        "id": 2,
+        "is_new": false,
+        "name": "Toyota"
+      },
+      {
+        "id": 3,
+        "is_new": true,
+        "name": "Yaris"
+      },
+      {
+        "id": 4,
+        "is_new": false,
+        "name": "Beat"
+      }
+    ],
+    "userdata": [
+      {
+        "id": 0,
+        "user_type": 0,
+        "username": "admin",
+        "password": "admin",
+        "data": []
+      },
+      {
+        "id": 1,
+        "user_type": 1,
+        "username": "budi",
+        "password": "budi",
+        "data": [
+          "revo"
+        ]
+      },
+      {
+        "id": 2,
+        "user_type": 1,
+        "username": "deni",
+        "password": "deni",
+        "data": [
+          "Yamaha"
+        ]
+      },
+      {
+        "id": 3,
+        "user_type": 3,
+        "username": "fedi",
+        "password": "fedi",
+        "data": [
+          "Yamaha"
+        ]
+      }
+    ]
+  }
