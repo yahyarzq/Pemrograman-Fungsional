@@ -1,0 +1,115 @@
+{
+    "userdata": [
+        {
+            "id": 1,
+            "data": {
+                "role_id": 1,
+                "role_status": "Penjual",
+                "nama": "Budi",
+                "username": "admin",
+                "password": "admin"
+            }
+        },
+        {
+            "id": 2,
+            "data": {
+                "role_id": 1,
+                "role_status": "Penjual",
+                "nama": "Denis",
+                "username": "denis",
+                "password": "denis"
+            }
+        },
+        {
+            "id": 3,
+            "data": {
+                "role_id": 2,
+                "role_status": "Pembeli",
+                "nama": "Sopo",
+                "username": "sopo",
+                "password": "sopo",
+                "barang": [
+                    {
+                        "id": 10,
+                        "data": {
+                            "nama_barang": "Helm",
+                            "jumlah_barang": 3
+                        }
+                    },
+                    {
+                        "id": 1,
+                        "data": {
+                            "nama_barang": "Oreo",
+                            "jumlah_barang": 4
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "data": {
+                            "nama_barang": "Tepung Terigu",
+                            "jumlah_barang": 11
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "data": {
+                            "nama_barang": "Minyak Goreng",
+                            "jumlah_barang": 4
+                        }
+                    },
+                    {
+                        "id": 5,
+                        "data": {
+                            "nama_barang": "Mio",
+                            "jumlah_barang": 1
+                        }
+                    },
+                    {
+                        "id": 99,
+                        "data": {
+                            "nama_barang": "Jagung",
+                            "jumlah_barang": 1
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "stok_barang": [
+        {
+            "id": 1,
+            "data": {
+                "nama_barang": "Oreo",
+                "jumlah_barang": 89
+            }
+        },
+        {
+            "id": 2,
+            "data": {
+                "nama_barang": "Minyak Goreng",
+                "jumlah_barang": 95
+            }
+        },
+        {
+            "id": 3,
+            "data": {
+                "nama_barang": "Tepung Terigu",
+                "jumlah_barang": 80
+            }
+        },
+        {
+            "id": 5,
+            "data": {
+                "nama_barang": "Mio",
+                "jumlah_barang": 87
+            }
+        },
+        {
+            "id": 99,
+            "data": {
+                "nama_barang": "Jagung",
+                "jumlah_barang": 0
+            }
+        }
+    ]
+}
